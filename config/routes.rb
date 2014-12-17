@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'home/index'
-
+  mount_opro_oauth
   devise_for :users
+  resources   :users
   root to: "home#index"
 end
