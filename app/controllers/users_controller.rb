@@ -3,7 +3,11 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
 
   allow_oauth! :except => :delete
-
+  
+  def index
+    @users = User.all
+  end
+  
   def show
     @user =   current_user if params[:id] == 'me'
     @user ||= User.find(params[:id])
